@@ -93,7 +93,8 @@ int main() {
 
         // Validacion: Advertir si parece un numero
         bool soloNumeros = true;
-        for (char c : nombres[totalProductos]) {
+        for (int i = 0; i < nombres[totalProductos].length(); i++) {
+          char c = nombres[totalProductos][i];
           if (c < '0' || c > '9') { // Checamos si NO es un digito
             soloNumeros = false;
             break;
