@@ -3,16 +3,43 @@
 using namespace std;
 
 int main() {
+
+  // Establecer codigo de administrador
+  int admin;
+  while (true) {
+    cout << "Establece tu codigo de administrador (4 digitos): ";
+    if (!(cin >> admin)) {
+      cout << "Error: Debes ingresar un numero valido.\n";
+      cin.clear();             // Limpiar estado de error
+      cin.ignore(10000, '\n'); // Limpiar buffer
+      continue;
+    }
+
+    if (admin < 1000 || admin > 9999) {
+      cout << "Error: El codigo debe ser de 4 digitos.\n";
+      continue;
+    }
+    break; // Codigo valido
+  }
+
   // -------------------------
   // VALIDACIÓN DE NIP
   // -------------------------
   int nip;
-  cout << "Ingresa tu NIP de 4 digitos: ";
-  cin >> nip;
-
-  if (nip < 1000 || nip > 9999) {
-    cout << "NIP invalido. Debe ser de 4 digitos." << endl;
-    return 0; // Finaliza el programa
+  while(true){
+    cout << "Ingresa tu NIP de 4 digitos: ";
+   if(!(cin >> nip)){
+    cout << "Error: Debes ingresar un numero valido.\n";
+    cin.clear();             // Limpiar estado de error
+    cin.ignore(10000, '\n'); // Limpiamos buffer
+    continue;
+   }
+   
+   if (admin != nip) {
+      cout << " tu nip es incorrecto" << endl;
+      continue;
+   }
+   break;
   }
 
   // -------------------------
@@ -111,7 +138,7 @@ int main() {
       }
 
       // ---- Validación de la cantidad
-      // ---- Validación de la cantidad
+
       int cantidad;
       while (true) {
         cout << "Ingresa la cantidad: ";
@@ -134,11 +161,19 @@ int main() {
 
       // ---- Validación del precio
       float precio;
-      cout << "Ingresa el precio unitario: ";
-      cin >> precio;
+      while (true) {
+        cout << "Ingresa el precio unitario: ";
+        if (!(cin >> precio)) {
+          cout << "Error: Debes ingresar un numero valido.\n";
+          cin.clear();             // Limpiar estado de error
+          cin.ignore(10000, '\n'); // Limpiar buffer
+          continue;
+        }
 
-      if (precio < 0) {
-        cout << "Error: el precio debe ser positivo.\n";
+        if (precio < 0) {
+          cout << "Error: el precio debe ser positivo.\n";
+          continue;
+        }
         break;
       }
 
